@@ -41,10 +41,10 @@ public class PushCore {
      * @param context
      */
     public static void init(Context context) {
-        init(context,false);
+        init(context, false);
     }
 
-    public static void init(Context context,boolean debug) {
+    public static void init(Context context, boolean debug) {
         sContext = context;
         DEBUG = debug;
         try {
@@ -78,6 +78,8 @@ public class PushCore {
         sb.append(" 魅族推送").append(isJoinFlyme);
         sb.append(" 极光推送").append(isJoinDefault);
         printLog(sb.toString());
+        if (!isJoiEmui && !isJoinMiui && !isJoinFlyme && !isJoinDefault)
+            throw new NullPointerException("至少集成一个推送");
     }
 
     /**
@@ -150,7 +152,10 @@ public class PushCore {
                 action = isJoinFlyme ? RECEIVER_ROM_FLYME : RECEIVER_ROM_DEFAULT;
                 break;
             default:
-                action = RECEIVER_ROM_DEFAULT;
+                if (isJoinDefault) action = RECEIVER_ROM_DEFAULT;
+                else if (isJoinMiui) action = RECEIVER_ROM_DEFAULT;
+                else if (isJoinFlyme) action = RECEIVER_ROM_DEFAULT;
+                else if (isJoiEmui) action = RECEIVER_ROM_DEFAULT;
                 break;
         }
         return action;
