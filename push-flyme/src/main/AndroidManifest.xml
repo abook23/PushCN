@@ -1,0 +1,47 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.push.flyme">
+
+    <!-- 兼容 flyme5.0 以下版本，魅族内部集成 pushSDK 必填，不然无法收到消息-->
+    <uses-permission android:name="com.meizu.flyme.push.permission.RECEIVE"/>
+    <!-- 兼容 flyme3.0 配置权限-->
+    <uses-permission android:name="com.meizu.c2dm.permission.RECEIVE"/>
+    <permission android:name="com.push.flyme.push.permission.MESSAGE" android:protectionLevel="signature"/>
+    <permission android:name="com.push.flyme.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.push.flyme.permission.C2D_MESSAGE"/>
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true">
+
+        <meta-data
+            android:name="FLYME_APPID"
+            android:value="${FLYME_APPID}"/>
+        <meta-data
+            android:name="FLYME_APPKEY"
+            android:value="${FLYME_APPKEY}"/>
+        <meta-data
+            android:name="INTEGRATION_PUSH_FLYME"
+            android:value="true"/>
+
+        <!-- push 应用定义消息 receiver 声明 -->
+        <receiver android:name=".PushFlymeReceiver">
+            <intent-filter>
+                <!-- 接收 push 消息 -->
+                <action android:name="com.meizu.flyme.push.intent.MESSAGE"/>
+
+                <!-- 接收 register 消息 -->
+                <action
+                    android:name="com.meizu.flyme.push.intent.REGISTER.FEEDBACK"/>
+                <!-- 接收 unregister 消息-->
+                <action
+                    android:name="com.meizu.flyme.push.intent.UNREGISTER.FEEDBACK"/>
+                <!-- 兼容低版本 Flyme3 推送服务配置 -->
+                <action android:name="com.meizu.c2dm.intent.REGISTRATION"/>
+                <action android:name="com.meizu.c2dm.intent.RECEIVE"/>
+                <category android:name="com.push.flyme"/>
+            </intent-filter>
+        </receiver>
+
+    </application>
+</manifest>
