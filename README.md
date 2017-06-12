@@ -39,11 +39,11 @@ dependencies {
     //compile 'com.github.abook23:PushCN:0.1.0'
 
     //分别集成
-    compile 'com.github.abook23.PushCN:push-core:0.1.0'     //必须集成
+    compile 'com.github.abook23.PushCN:push-core:0.1.0'     //必须集成 //可选项 至少选一个
     compile 'com.github.abook23.PushCN:push-flyme:0.1.0'    //可选
     compile 'com.github.abook23.PushCN:push-huawei:0.1.0'   //可选
     compile 'com.github.abook23.PushCN:push-xiaomi:0.1.0'   //可选
-    compile 'com.github.abook23.PushCN:push-jiguang:0.1.0'  //默认推送:可以,但必须集成其他推送 push-xiaomi > push-flyme > push-huawei
+    compile 'com.github.abook23.PushCN:push-jiguang:0.1.0'  //可选//非集成rom 默认推送
     ...
 }
 
