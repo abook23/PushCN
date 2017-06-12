@@ -1,8 +1,8 @@
 # PushCN
 
-rom推送 > 默认推送 
+#rom推送 > 默认推送 
     
-module 的 builde.gradle 集成如下
+## 1 module 的 builde.gradle 集成如下
 ```java
 android{
     ...
@@ -45,7 +45,7 @@ dependencies {
 
 ```
 
-AndroidManifest.xml集成如下
+## 2 AndroidManifest.xml集成如下
 ```java
    <!--小米推送 修改包名-->
     <permission
