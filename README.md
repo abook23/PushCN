@@ -35,11 +35,15 @@ android{
 
 dependencies {
     ...
-    compile project(':push-core')   //必须集成
-    compile project(':push-xiaomi') //可选
-    compile project(':push-huawei') //可选
-    compile project(':push-flyme')  //可选
-    compile project(':push-jiguang')//默认推送 //可以,但必须集成其他推送 push-xiaomi > push-flyme > push-huawei
+    //全部集成
+    //compile 'com.github.abook23:PushCN:0.1.0'
+
+    //分别集成
+    compile 'com.github.abook23.PushCN:push-core:0.1.0'     //必须集成
+    compile 'com.github.abook23.PushCN:push-flyme:0.1.0'    //可选
+    compile 'com.github.abook23.PushCN:push-huawei:0.1.0'   //可选
+    compile 'com.github.abook23.PushCN:push-xiaomi:0.1.0'   //可选
+    compile 'com.github.abook23.PushCN:push-jiguang:0.1.0'  //默认推送:可以,但必须集成其他推送 push-xiaomi > push-flyme > push-huawei
     ...
 }
 
