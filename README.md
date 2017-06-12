@@ -1,6 +1,8 @@
 # PushCN
 
 ```java
+    rom推送 > 默认推送 
+    
     compile project(':push-core')   //必须集成
     compile project(':push-xiaomi') //可选
     compile project(':push-huawei') //可选
