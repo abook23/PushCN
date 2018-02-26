@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/push-flyme/push-flyme.iml" filepath="$PROJECT_DIR$/push-flyme/push-flyme.iml" />
       <module fileurl="file://$PROJECT_DIR$/push-huawei/push-huawei.iml" filepath="$PROJECT_DIR$/push-huawei/push-huawei.iml" />
       <module fileurl="file://$PROJECT_DIR$/push-jiguang/push-jiguang.iml" filepath="$PROJECT_DIR$/push-jiguang/push-jiguang.iml" />
+      <module fileurl="file://$PROJECT_DIR$/push-websocket/push-websocket.iml" filepath="$PROJECT_DIR$/push-websocket/push-websocket.iml" />
       <module fileurl="file://$PROJECT_DIR$/push-xiaomi/push-xiaomi.iml" filepath="$PROJECT_DIR$/push-xiaomi/push-xiaomi.iml" />
     </modules>
   </component>

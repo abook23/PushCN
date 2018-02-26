@@ -8,6 +8,8 @@ import android.util.Log;
 
 import com.push.core.util.RomUtil;
 
+import java.text.NumberFormat;
+
 public class PushCore {
 
     public static String TAG = "PushCore";
@@ -45,10 +47,10 @@ public class PushCore {
     }
 
     public static void init(Context context, boolean debug) {
-        sContext = context;
+        sContext = context.getApplicationContext();
         DEBUG = debug;
         try {
-            integrationRomPush(context);//系统 开发者集成了那些 推送
+            integrationRomPush(sContext);//系统 开发者集成了那些 推送
             if (DEBUG)
                 Log.d(TAG, RomUtil.getHandSetInfo());
             sendInitBroadcast();//
@@ -158,17 +160,29 @@ public class PushCore {
                 else if (isJoiEmui) action = RECEIVER_ROM_DEFAULT;
                 break;
         }
+        //action = RECEIVER_ROM_DEFAULT;
         return action;
     }
 
-    public static String getMetaData(Context context, String dataName) {
+    public static String getMetaData(Context context, String key) {
         try {
             ApplicationInfo appInfo = context.getPackageManager()
                     .getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
-            return appInfo.metaData.getString(dataName).replace("/", "");
+            Object data = appInfo.metaData.get(key);
+            if (data != null)
+                return data.toString();
         } catch (PackageManager.NameNotFoundException e) {
         }
         return null;
+    }
+
+    // 方法一：NumberFormat
+    public static String formatFloat(float d) {
+        NumberFormat nf = NumberFormat.getInstance();
+        // 是否以逗号隔开, 默认true以逗号隔开,如[123,456,789.128]
+        nf.setGroupingUsed(false);
+        // 结果未做任何处理
+        return nf.format(d);
     }
 
     public static void printLog(String content) {

@@ -10,15 +10,23 @@ import android.os.Parcelable;
 
 public class PushCoreReceiverManager {
 
-    private static final String INTENT_DATA_PUSH = "push_data";
+    public static final String INTENT_DATA_PUSH = "push_data";
 
-    public static void sendBroadcast(Context context, String action, Parcelable data) {
+    public static void sendBroadcast(Context context, String action,String type, Parcelable data) {
         Intent intent = new Intent(action);
+        intent.putExtra("type",type);
         intent.putExtra(INTENT_DATA_PUSH, data);
         context.sendBroadcast(intent);
     }
 
     public static <T extends Parcelable> T parsePushData(Intent intent) {
         return intent.getParcelableExtra(INTENT_DATA_PUSH);
+    }
+
+    public static void sendBroadcast(Context context, String action,  Parcelable data) {
+        Intent intent = new Intent(action);
+//        intent.putExtra("type",type);
+        intent.putExtra(INTENT_DATA_PUSH, data);
+        context.sendBroadcast(intent);
     }
 }

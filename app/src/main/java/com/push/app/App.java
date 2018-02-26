@@ -19,7 +19,7 @@ public class App extends Application {
         super.onCreate();
         //初始化push推送服务
         if (shouldInit()) {
-            PushCore.init(this);
+//            PushCore.init(this);
         }
     }
 

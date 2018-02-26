@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/push-flyme" />
             <option value="$PROJECT_DIR$/push-huawei" />
             <option value="$PROJECT_DIR$/push-jiguang" />
+            <option value="$PROJECT_DIR$/push-websocket" />
             <option value="$PROJECT_DIR$/push-xiaomi" />
           </set>
         </option>

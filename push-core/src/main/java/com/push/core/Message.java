@@ -118,6 +118,10 @@ public final class Message implements Parcelable {
         this.type = type;
     }
 
+    public String getRgistrationId() {
+        return rgistrationId;
+    }
+
     @Override
     public int describeContents() {
         return 0;

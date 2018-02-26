@@ -3,21 +3,21 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="com.push.app">
 
-   <!--小米推送 修改包名-->
+    <!--小米推送 修改包名-->
     <permission
         android:name="com.push.app.permission.MIPUSH_RECEIVE"
-        android:protectionLevel="signature" />
-    <uses-permission android:name="com.push.app.permission.MIPUSH_RECEIVE" />
+        android:protectionLevel="signature"/>
+    <uses-permission android:name="com.push.app.permission.MIPUSH_RECEIVE"/>
 
     <!--魅族推送 修改包名-->
     <uses-permission android:name="com.push.app.push.permission.MESSAGE"/>
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:name=".App"
         android:theme="@style/AppTheme">
         <activity android:name="com.push.app.MainActivity">
             <intent-filter>
@@ -26,6 +26,12 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <receiver android:name=".Receiver">
+            <intent-filter>
+                <action android:name="com.push.core.PushCoreReceiver"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

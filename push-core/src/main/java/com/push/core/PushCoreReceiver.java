@@ -6,6 +6,8 @@ import android.content.Intent;
 
 public abstract class PushCoreReceiver extends BroadcastReceiver implements PushInterface {
 
+    public final static String action = "com.push.core.PushCoreReceiver";
+
     public final static String ON_REGISTER = "com.push.core.onRegister";
     public final static String ON_UN_REGISTER = "com.push.core.onUnRegister";
     public final static String ON_RESUME = "com.push.core.onResume";
@@ -19,11 +21,11 @@ public abstract class PushCoreReceiver extends BroadcastReceiver implements Push
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        String action = intent.getAction();
-        Message message = intent.getParcelableExtra("message");
-        switch (action) {
+        String type = intent.getStringExtra("type");
+        Message message = intent.getParcelableExtra(PushCoreReceiverManager.INTENT_DATA_PUSH);
+        switch (type) {
             case ON_REGISTER:
-                onRegister(context, message.getMessageID());
+                onRegister(context, message.getRgistrationId());
                 break;
             case ON_UN_REGISTER:
                 onUnRegister(context);
