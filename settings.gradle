@@ -1,2 +1,2 @@
-include ':app', ':push-xiaomi', ':push-jiguang', ':push-core', ':push-huawei', ':push-flyme',':push-huawei', ':push-websocket'
+include ':app', ':push-xiaomi', ':push-jiguang', ':push-core', ':push-huawei', ':push-flyme',':push-huawei', ':push-xg'
 //include ':HMSExample'
